@@ -10,7 +10,9 @@ const router = express.Router({
   mergeParams: true,
 });
 
-router.use('/', authentication, authorization([RoleCode.ADMIN, RoleCode.USER]));
+router.use('/', authentication
+// , authorization([RoleCode.ADMIN, RoleCode.USER])
+ );
 
 router.post(
   '/',

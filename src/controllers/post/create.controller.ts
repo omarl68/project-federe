@@ -5,6 +5,7 @@ import { SuccessResponse } from '../../core/ApiResponse';
 
 export const createPost = asyncHandler(async (req: ProtectedRequest, res) => {
   const { user, body } = req;
+  console.log(user, body);
   body.createdBy = user._id;
   const post = await PostRepo.create(body);
   return new SuccessResponse('post has been created successfully!', post).send(

@@ -1,10 +1,10 @@
-import Joi from "@hapi/joi";
-import { JoiAuthBearer, JoiObjectId } from "../../../helpers/validator";
+import Joi from '@hapi/joi';
+import { JoiAuthBearer, JoiObjectId } from '../../../helpers/validator';
 
 export default {
   userLogin: Joi.object().keys({
     email: Joi.string().email(),
-    userName: Joi.string().email(),
+    userName: Joi.string().optional(),
     password: Joi.string().required().min(6),
   }),
 
@@ -31,9 +31,9 @@ export default {
       .required()
       .regex(/^[a-zA-Z0-9]{8,30}$/)
       .messages({
-        "string.pattern.base":
-          "Password must be 8-30 characters long and contain only alphanumeric characters.",
-        "any.required": "Password is required.",
+        'string.pattern.base':
+          'Password must be 8-30 characters long and contain only alphanumeric characters.',
+        'any.required': 'Password is required.',
       }),
     userType: JoiObjectId().optional(),
   }),

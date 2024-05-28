@@ -9,10 +9,8 @@ import _ from 'lodash';
 export const getMyProfile = asyncHandler(async (req: ProtectedRequest, res) => {
   const user = await UserRepo.findProfileById(req.user._id);
   if (!user) throw new BadRequestError('User not registered');
-  return new SuccessResponse(
-    'success',
-    _.pick(user, ['name', 'profilePicUrl', 'role', 'createdAt', 'verified'])
-  ).send(res);
+
+  return new SuccessResponse('success', user).send(res);
 });
 
 export const updateProfile = asyncHandler(
