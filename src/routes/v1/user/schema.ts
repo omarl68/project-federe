@@ -19,7 +19,7 @@ export default {
       .required()
       .regex(/^[a-zA-Z0-9]{8,30}$/),
     profilePicUrl: Joi.string().optional().uri(),
-    role: Joi.string().optional(),
+    role: Joi.string().required(),
     verified: Joi.boolean().required(),
 
     userType: Joi.string().optional()

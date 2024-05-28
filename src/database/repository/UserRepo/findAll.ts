@@ -9,7 +9,7 @@ type pagingObj = {
 };
 
 const findAll = async (
-  paging: any,
+  paging: pagingObj,
   query: object,
   apiOptions: ApiOptions
 ): Promise<PaginationModel<User>> => {
