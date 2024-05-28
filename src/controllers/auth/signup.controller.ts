@@ -18,10 +18,8 @@ export const signup = asyncHandler(async (req: RoleRequest, res) => {
     email,
     phoneNumber,
     password,
-    userType,
     country,
     birthDay,
-    message,
   } = req.body;
   if (req.file) req.body.profilePicUrl = req.file.path;
   let user = await UserRepo.findByEmail(email);
@@ -50,16 +48,6 @@ export const signup = asyncHandler(async (req: RoleRequest, res) => {
     birthDay,
     country,
     profilePicUrl: req.body.profilePicUrl,
-  });
-
-  await sendEmail({
-    email: createdUser.email,
-    subject: "تحقق من الحساب", // Arabic translation for 'verify account'
-    message: message ? message : "",
-    template: "emailConfirmationCode",
-    variables: {
-      code: resetCode,
-    },
   });
 
   new SuccessResponse("Account created successfully", createdUser).send(res);
