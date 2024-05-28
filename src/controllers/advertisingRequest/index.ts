@@ -48,7 +48,6 @@ export const getAllAdvertiseRequests = asyncHandler(
       page: Number(page) || 1,
       limit: Number(limit) || 12,
     };
-    console.log({ options });
     const users = await advertisingRequestRepository.findAll(
       options,
       req.query,
@@ -57,7 +56,6 @@ export const getAllAdvertiseRequests = asyncHandler(
         deleted: Boolean(deleted),
       }
     );
-    console.log({ users });
     const { docs, ...meta } = users;
     new SuccessResponsePaginate(
       "All advertiseRequests returned successfuly",

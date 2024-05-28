@@ -28,7 +28,7 @@ const findAll = async (
     limit: paging.limit ? paging.limit : null,
     page: paging.page ? paging.page : null,
   };
-  console.log({ options });
+
   return (await UserModel.paginate(options)) as PaginationModel<User>;
 };
 

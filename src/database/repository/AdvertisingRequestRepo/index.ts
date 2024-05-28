@@ -27,7 +27,7 @@ const findAll = async (
   let findAllQuery = apiOptions.deleted
     ? AdvertiseModel.find({ deletedAt: { $ne: null } })
     : AdvertiseModel.find({ deletedAt: null });
-console.log({findAllQuery})
+
   const features = new APIFeatures(findAllQuery, query)
     .filter()
     .sort()

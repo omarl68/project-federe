@@ -7,7 +7,7 @@ import { SuccessResponsePaginate } from '../../core/ApiResponse';
 
 export const getAllUsers = asyncHandler(async (req: ProtectedRequest, res) => {
   const { page, limit, deleted } = req.query;
-  console.log({ limit });
+
   const options = {
     page,
     limit,

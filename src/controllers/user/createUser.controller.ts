@@ -9,7 +9,7 @@ import UserTypeRepo from "../../database/repository/UserTypeRepo";
 
 export const createUser = asyncHandler(async (req: ProtectedRequest, res) => {
   const { body } = req;
-console.log(body)
+
   let user = await UserRepo.findByObj(
     body.email ? { email: body.email } : { phoneNumber: body.phoneNumber }
   );
