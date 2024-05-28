@@ -7,6 +7,7 @@ import email from './email/email';
 import userType from './userType/userType';
 import country from './country/country';
 import post from './post/post';
+import advertising from './advertisingRequest';
 
 const router = express.Router();
 
@@ -14,6 +15,7 @@ const router = express.Router();
 router.use('/media', media);
 
 // routes require authentication
+router.use('/advertising', advertising);
 router.use('/auth', auth);
 router.use('/profile', profile);
 router.use('/users', users);
