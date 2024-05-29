@@ -9,8 +9,8 @@ export const getAllUsers = asyncHandler(async (req: ProtectedRequest, res) => {
   const { page, limit, deleted } = req.query;
 
   const options = {
-    page,
-    limit,
+    page: Number(page) || 1,
+    limit: Number(limit) || 10,
   };
   const users = await UserRepo.findAll(options, req.query, {});
 
