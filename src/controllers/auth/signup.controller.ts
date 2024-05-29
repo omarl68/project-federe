@@ -31,7 +31,7 @@ export const signup = asyncHandler(async (req: RoleRequest, res) => {
   const userTypeCheck = await UserTypeRepo.getOneByObj({
     name: UserTypeCode.MEMBER,
   });
-  if (!userTypeCheck) throw new BadRequestError("userType not found");
+  // if (!userTypeCheck) throw new BadRequestError("userType not found");
 
   const resetCode = crypto.randomInt(1111, 9999).toString();
 
