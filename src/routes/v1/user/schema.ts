@@ -21,6 +21,8 @@ export default {
     profilePicUrl: Joi.string().optional().uri(),
     role: Joi.string().required(),
     verified: Joi.boolean().required(),
+
+    userType: Joi.string().optional()
   }),
   update: Joi.object().keys({
     name: Joi.string().min(1).max(200),

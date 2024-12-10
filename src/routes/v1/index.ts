@@ -23,5 +23,6 @@ router.use('/email', email);
 router.use('/usertypes', userType);
 router.use('/countries', country);
 router.use('/posts', post);
+router.use('/advertising',advertising)
 
 export default router;

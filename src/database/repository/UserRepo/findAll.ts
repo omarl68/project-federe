@@ -11,7 +11,7 @@ type pagingObj = {
 const findAll = async (
   paging: pagingObj,
   query: object,
-  apiOptions: ApiOptions,
+  apiOptions: ApiOptions
 ): Promise<PaginationModel<User>> => {
   let findAllQuery = apiOptions.deleted
     ? UserModel.find({ deletedAt: { $ne: null } })

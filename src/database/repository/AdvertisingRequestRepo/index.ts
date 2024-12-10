@@ -4,6 +4,7 @@ import IAdvReq, {
 } from "../../../database/model/advertisingRequest";
 import { PaginationModel } from "mongoose-paginate-ts";
 import APIFeatures from "../../../helpers/apiFeatures";
+import { findLast } from "lodash";
 
 const create = async (data: Partial<IAdvReq>): Promise<IAdvReq> => {
   return await AdvertiseModel.create(data);
